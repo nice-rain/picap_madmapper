@@ -1,5 +1,5 @@
 class Collider {
-  float strength = 100;
+  float strength = 5;
   PVector location;
   float r = 10;
 

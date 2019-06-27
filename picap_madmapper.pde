@@ -22,12 +22,11 @@ void generateColliders(int numRows, int numColumns)
   {
      for (int c = 0; c < numColumns + 1; c++)
     {
-      Collider newCol = new Collider(c*100+25, i*100+25);
+      Collider newCol = new Collider(c*100+200, i*100+200);
       colliders.add(newCol);
     }
   }
 }
-
 
 void updateArrayOSC(int[] array, Object[] data) {
   if (array == null || data == null) {
@@ -82,12 +81,13 @@ void draw() {  // draw() loops forever, until stopped
 
   ps.applyForce(gravity);
 
-  ps.applyCollision(col);
+  //ps.applyCollision(col);
   
   ps.run();
-  col.display();
+  //col.display();
 
   for (Collider c: colliders){
+    ps.applyCollision(c);
     c.display();
   }
 }
