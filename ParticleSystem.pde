@@ -20,4 +20,17 @@ class ParticleSystem {
       }
     }
   }
+
+  void applyForce(PVector f) {
+    for (Particle p: particles) {
+      p.applyForce(f);
+    }
+  }
+
+  void applyCollision(Collider c) {
+    for (Particle p: particles) {
+      PVector force = c.repel(p);
+      p.applyForce(force);
+    }
+  }
 }
