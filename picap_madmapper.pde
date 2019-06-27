@@ -35,6 +35,10 @@ void setup() {
 
   size(1280, 800);
   frameRate(30);
+
+  //Particle import example.
+  Particle particle = new Particle();
+  println(particle.str);
 }
 
 void draw() {  // draw() loops forever, until stopped
