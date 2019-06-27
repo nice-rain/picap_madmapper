@@ -22,7 +22,7 @@ void generateColliders(int numRows, int numColumns)
   {
      for (int c = 0; c < numColumns + 1; c++)
     {
-      Collider newCol = new Collider(c*100+200, i*100+200);
+      Collider newCol = new Collider(c*100+200, i*100+200, 25);
       colliders.add(newCol);
     }
   }
@@ -56,7 +56,7 @@ void setup() {
   frameRate(60);
 
   //collider spawn
-  col = new Collider(width/2 - 25, 140, 25);
+  //col = new Collider(width/2 - 25, 140, 25);
 
   //Particle system spawn
   ps = new ParticleSystem(new PVector(width/2, 50));
