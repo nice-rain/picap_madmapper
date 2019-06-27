@@ -9,6 +9,10 @@ int numElectrodes  = 12;
 int[] status, lastStatus;
 String[] mediasList = new String [numElectrodes];
 
+//Import our particle system
+ParticleSystem ps;
+Collider col;
+
 void updateArrayOSC(int[] array, Object[] data) {
   if (array == null || data == null) {
     return;
@@ -34,22 +38,26 @@ void setup() {
   mediasList[1] = "square_animation.mp4";
 
   size(1280, 800);
-  frameRate(30);
+  frameRate(60);
 
-  //Particle import example.
-  Particle particle = new Particle();
-
-  Collider collider = new Collider(0, 2);
-  println(particle.str);
+  col = new Collider(0, 2);
+  //Particle system spawn
+  ps = new ParticleSystem(new PVector(width/2, 50));
 }
 
 void draw() {  // draw() loops forever, until stopped
-  background(204);
   yPos = yPos - 1.0;
   if (yPos < 0) {
     yPos = height;
   }
   line(0, yPos, width, yPos);
+
+  //Draw our particle system
+  background(0);
+  ps.addParticle();
+  
+  ps.run();
+  col.display();
 }
 
 void oscEvent(OscMessage oscMessage) {
