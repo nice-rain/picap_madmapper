@@ -12,6 +12,22 @@ String[] mediasList = new String [numElectrodes];
 //Import our particle system
 ParticleSystem ps;
 Collider col;
+ArrayList<Collider> colliders = new ArrayList<Collider>();
+
+
+//Function to generate and store all colliders in an array
+void generateColliders(int numRows, int numColumns)
+{
+  for (int i = 0; i < numRows + 1; i++)
+  {
+     for (int c = 0; c < numColumns + 1; c++)
+    {
+      Collider newCol = new Collider(c*100+25, i*100+25);
+      colliders.add(newCol);
+    }
+  }
+}
+
 
 void updateArrayOSC(int[] array, Object[] data) {
   if (array == null || data == null) {
@@ -44,6 +60,9 @@ void setup() {
 
   //Particle system spawn
   ps = new ParticleSystem(new PVector(width/2, 50));
+
+  //Generate all colliders
+  generateColliders(5, 11);
 }
 
 void draw() {  // draw() loops forever, until stopped
@@ -67,6 +86,10 @@ void draw() {  // draw() loops forever, until stopped
   
   ps.run();
   col.display();
+
+  for (Collider c: colliders){
+    c.display();
+  }
 }
 
 void oscEvent(OscMessage oscMessage) {
