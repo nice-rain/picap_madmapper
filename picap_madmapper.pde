@@ -38,6 +38,8 @@ void setup() {
 
   //Particle import example.
   Particle particle = new Particle();
+
+  Collider collider = new Collider(0, 2);
   println(particle.str);
 }
 
