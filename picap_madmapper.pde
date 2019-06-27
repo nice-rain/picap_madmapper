@@ -40,7 +40,8 @@ void setup() {
   size(1280, 800);
   frameRate(60);
 
-  col = new Collider(0, 2);
+  col = new Collider(width/2, 140);
+
   //Particle system spawn
   ps = new ParticleSystem(new PVector(width/2, 50));
 }
@@ -54,7 +55,15 @@ void draw() {  // draw() loops forever, until stopped
 
   //Draw our particle system
   background(0);
+
+   //set gravite
+  PVector gravity = new PVector(0,0.1);
+
   ps.addParticle();
+
+  ps.applyForce(gravity);
+
+  ps.applyCollision(col);
   
   ps.run();
   col.display();

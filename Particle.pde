@@ -3,6 +3,7 @@ class Particle {
   PVector velocity;
   PVector acceleration;
   float lifespan;
+  float mass = 1;
 
   Particle(PVector l) {
     acceleration = new PVector(0, 0.05);
@@ -37,5 +38,11 @@ class Particle {
     } else {
       return false;
     }
+  }
+  
+    void applyForce(PVector force) {
+    PVector f = force.copy();
+    f.div(mass);
+    acceleration.add(f);
   }
 }
