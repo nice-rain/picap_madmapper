@@ -19,6 +19,9 @@ void updateArrayOSC(int[] array, Object[] data) {
   }
 }
 
+//Position of th eline
+float yPos = 0.0;
+
 void setup() {
   // setup OSC receiver on port 3000
   oscP5 = new OscP5(this, 1400);
@@ -29,6 +32,18 @@ void setup() {
   
   mediasList[0] = "bubble_animation.mp4";
   mediasList[1] = "square_animation.mp4";
+
+  size(1280, 800);
+  frameRate(30);
+}
+
+void draw() {  // draw() loops forever, until stopped
+  background(204);
+  yPos = yPos - 1.0;
+  if (yPos < 0) {
+    yPos = height;
+  }
+  line(0, yPos, width, yPos);
 }
 
 void oscEvent(OscMessage oscMessage) {
