@@ -40,7 +40,8 @@ void setup() {
   size(1280, 800);
   frameRate(60);
 
-  col = new Collider(width/2, 140);
+  //collider spawn
+  col = new Collider(width/2 - 25, 140, 25);
 
   //Particle system spawn
   ps = new ParticleSystem(new PVector(width/2, 50));
