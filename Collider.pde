@@ -11,7 +11,7 @@ class Collider {
   void display() {
     stroke(255);
     fill(255);
-    rect(location.x,location.y,width,width, 10);
+    rect(location.x,location.y,width,width, 10); //location.x, location.y, width, width, 10
   }
 
  PVector repel(Particle p) {
