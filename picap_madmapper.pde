@@ -21,7 +21,7 @@ void generateColliders(int numRows, int numColumns)
   {
      for (int c = 0; c < numColumns; c++)
     {
-      Collider newCol = new Collider(c*115+115, i*125+170, 85);
+      Collider newCol = new Collider(c*115+50, i*115+170, 75);
       colliders.add(newCol);
     }
   }
