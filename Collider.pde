@@ -1,5 +1,5 @@
 class Collider {
-  float strength = 5;
+  float strength = 0;
   PVector location;
   float width;
 
@@ -11,7 +11,7 @@ class Collider {
   void display() {
     stroke(255);
     fill(255);
-    rect(location.x,location.y,width * 2,width *2, 10);
+    rect(location.x,location.y,width,width, 10);
   }
 
  PVector repel(Particle p) {
