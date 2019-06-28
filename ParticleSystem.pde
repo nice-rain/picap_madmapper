@@ -8,13 +8,15 @@ class ParticleSystem {
   }
 
   void addParticle() {
-    particles.add(new Particle(origin));
+    PVector newOrigin = new PVector(random(100, 1200), origin.y);
+    particles.add(new Particle(newOrigin));
   }
 
-  void run() {
+  void run(ArrayList<Collider> colliders) {
     for (int i = particles.size()-1; i >= 0; i--) {
       Particle p = particles.get(i);
-      p.run();
+      //Call particle run to move it
+      p.run(colliders);
       if (p.isDead()) {
         particles.remove(i);
       }

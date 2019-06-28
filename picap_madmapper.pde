@@ -14,7 +14,6 @@ ParticleSystem ps;
 Collider col;
 ArrayList<Collider> colliders = new ArrayList<Collider>();
 
-
 //Function to generate and store all colliders in an array
 void generateColliders(int numRows, int numColumns)
 {
@@ -22,7 +21,7 @@ void generateColliders(int numRows, int numColumns)
   {
      for (int c = 0; c < numColumns + 1; c++)
     {
-      Collider newCol = new Collider(c*100+200, i*100+200, 25);
+      Collider newCol = new Collider(c*100+200, i*100+200, 50);
       colliders.add(newCol);
     }
   }
@@ -59,7 +58,7 @@ void setup() {
   //col = new Collider(width/2 - 25, 140, 25);
 
   //Particle system spawn
-  ps = new ParticleSystem(new PVector(width/2, 50));
+  ps = new ParticleSystem(new PVector(width/2, 120));
 
   //Generate all colliders
   generateColliders(5, 11);
@@ -84,7 +83,7 @@ void draw() {  // draw() loops forever, until stopped
 
   //ps.applyCollision(col);
   
-  ps.run();
+  ps.run(colliders);
   //col.display();
 
   for (Collider c: colliders){
